@@ -11,7 +11,7 @@ def load_data():
     INPUT: None
     OUTPUT: DataFrame
     """
-    df = pd.read_csv('data/pandas_dating_demo_df_anon.csv')
+    df = pd.read_csv('../data/pandas_dating_demo_df_anon.csv')
     df.drop('ID', inplace=True, axis=1)
 
     ans = int(input("Would you like to include the 'Chemistry' variable or not? \
@@ -69,7 +69,7 @@ def plot_pairs(df):
     plt.close()
 
 
-def get_logit_coeff(df, col):
+def get_logit_coef(df, col):
     """
     Get coefficient from logit model.
     INPUT:
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     X = df.values
 
     # Intentionally overfit the model b/c I only want to know feature_importances for existing data, not attempting to actually makes predictions (yet!)
-    mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4)
+    mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4, seed=462)
     mod.fit(X, y)
     feat_importances(df, mod)
     # Add Binary version of target col back for plotting and Logit
@@ -97,10 +97,12 @@ if __name__ == '__main__':
     df['Age'] = age
 
 
+    get_logit_coef(df, 'Age')
+
 # sns.jointplot(x=df['Intellectual_Connection'].values, y=y_binary, kind='reg', ratio=10)
 # sns.regplot(x=df['Intellectual_Connection'].values, y=y_binary, ci=0)
 
-sns.pairplot(data=df, x_vars=['Age', 'Intellectual_Connection'], y_vars=['Like_Binary'], kind='reg', size=6, plot_kws=dict(ci=0))
+sns.pairplot(data=df, x_vars=['Age', 'Attraction'], y_vars=['Like_Binary'], kind='reg', size=6, plot_kws=dict(ci=0))
 # plt.title("Intellectual Connection vs. 'Liking' A Date (R2 = +0.650)")
 # plt.xlabel('Intellectual Connection (scale 0-10)')
 # plt.ylabel('Did I "Like" This Person?')
