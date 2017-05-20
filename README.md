@@ -69,7 +69,11 @@ Rank | Feature                 | Importance
 
 <sub> __Table 2:__ The top 10 features from my initial run, without _Chemistry_, and without any data prep apart from dummied variables.</sub>
 
-My initial reaction to this result was one of surprise.  Age?  Really?  That's the overwhelmingly most predictive feature for whether or not I liked someone?  That sure didn't _feel_ right, so I looked
+My initial reaction to this result was one of surprise.  Age?  Really?  That's the overwhelmingly most predictive feature for whether or not I liked someone?  That sure didn't _feel_ right, so I did a quick visual inspection to see if this made sense.
+
+<img src="images/age_intellect_like_pair_plot.png" alt="Comparison of Age and Intellectual Connection correlation to 'Liking' someone."
+
+<sub> __Figure 1:__ Comparison of Age and Intellectual Connection correlation to 'Liking' someone.</sub>
 
 
 ### What Factors Best Predict Whether I Will Want to Continue Dating Someone?

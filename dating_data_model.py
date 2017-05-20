@@ -10,7 +10,7 @@ def load_data():
     INPUT: None
     OUTPUT: DataFrame
     """
-    df = pd.read_csv('pandas_dating_demo_df_anon.csv')
+    df = pd.read_csv('data/pandas_dating_demo_df_anon.csv')
     df.drop('ID', inplace=True, axis=1)
 
     ans = int(input("Would you like to include the 'Chemistry' variable or not? \
@@ -75,11 +75,20 @@ if __name__ == '__main__':
     # sorted(feats, reverse=True)
     # df['Age'] = age
 
-yy = np.array([1 if x == 'Yes' else 0 for x in y])
-sns.jointplot(x=df['Age'].values, y=yy, kind='reg', ratio=10)
-plt.xlabel()
-plt.ylabel()
+y_binary = np.array([1 if x == 'Yes' else 0 for x in y])
+# sns.jointplot(x=df['Intellectual_Connection'].values, y=y_binary, kind='reg', ratio=10)
+# sns.regplot(x=df['Intellectual_Connection'].values, y=y_binary, ci=0)
+df['Like_Binary'] = y_binary
+sns.pairplot(data=df, x_vars=['Age', 'Intellectual_Connection', 'Attraction'], y_vars=['Like_Binary'], kind='reg')
+# plt.title("Intellectual Connection vs. 'Liking' A Date (R2 = +0.650)")
+# plt.xlabel('Intellectual Connection (scale 0-10)')
+# plt.ylabel('Did I "Like" This Person?')
+plt.yticks([0, 1], ['No', 'Yes'])
+plt.tight_layout()
 plt.show()
+plt.close()
+
+
 
 
 
