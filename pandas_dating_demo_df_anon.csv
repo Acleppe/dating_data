@@ -1,4 +1,4 @@
-ID,Age,Height(in.),Attraction,Intellectual_Connection,Humor,Phys_Chemistry,Hair,Attitude,Politics,Income,Divorced,Kids,Second_Date,Like_This_Person?
+ID,Age,Height(in.),Attraction,Intellectual_Connection,Humor,Chemistry,Hair,Attitude,Politics,Income,Divorced,Kids,Second_Date,Like_This_Person?
 1,27,67,4,2.5,1,4,Blonde,Neutral,Left,Low,No,No,Yes,No
 2,27,65,5.5,6.5,4.5,3,Blonde,Complainer,Left,Low,No,No,Yes,No
 3,25,61,1,2,2.5,1,Brunette,Negative,Left,Low,No,No,No,No
