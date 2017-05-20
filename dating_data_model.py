@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from sklearn.linear_model import LogisticRegression
 import xgboost as xgb
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -60,10 +61,30 @@ def feat_importances(df, mod):
         print("{r}. {feat}: {imp:.1f}%".format(r=idx, feat=itm[1], imp=itm[0] * 100))
 
 
+def plot_pairs(df):
+    sns.pairplot(data=df, x_vars=['Age', 'Intellectual_Connection'], y_vars=['Like_Binary'], kind='reg', size=6, plot_kws=dict(ci=0))
+    plt.yticks([0, 1], ['No', 'Yes'])
+    plt.tight_layout()
+    plt.show()
+    plt.close()
+
+
+def get_logit_coeff(df, col):
+    """
+    Get coefficient from logit model.
+    INPUT:
+    OUTPUT:
+    """
+    clf = LogisticRegression(C=1.0, penalty='l1', tol=1e-6)
+    clf.fit(df[col].values.reshape(-1, 1), df['Like_Binary'].values.ravel())
+    return clf.coef_
+
+
+
 if __name__ == '__main__':
     df = load_data()
     df = make_dummies(df)
-
+    df, age = bin_age(df)
     y = df.pop('Like_This_Person?').values
     X = df.values
 
@@ -71,15 +92,15 @@ if __name__ == '__main__':
     mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4)
     mod.fit(X, y)
     feat_importances(df, mod)
-    # feats = list(zip(mod.feature_importances_, df.columns.tolist()))
-    # sorted(feats, reverse=True)
-    # df['Age'] = age
+    # Add Binary version of target col back for plotting and Logit
+    df['Like_Binary'] = np.array([1 if x == 'Yes' else 0 for x in y])
+    df['Age'] = age
 
-y_binary = np.array([1 if x == 'Yes' else 0 for x in y])
+
 # sns.jointplot(x=df['Intellectual_Connection'].values, y=y_binary, kind='reg', ratio=10)
 # sns.regplot(x=df['Intellectual_Connection'].values, y=y_binary, ci=0)
-df['Like_Binary'] = y_binary
-sns.pairplot(data=df, x_vars=['Age', 'Intellectual_Connection', 'Attraction'], y_vars=['Like_Binary'], kind='reg')
+
+sns.pairplot(data=df, x_vars=['Age', 'Intellectual_Connection'], y_vars=['Like_Binary'], kind='reg', size=6, plot_kws=dict(ci=0))
 # plt.title("Intellectual Connection vs. 'Liking' A Date (R2 = +0.650)")
 # plt.xlabel('Intellectual Connection (scale 0-10)')
 # plt.ylabel('Did I "Like" This Person?')

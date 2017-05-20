@@ -45,7 +45,7 @@ Let me quickly clarify how certain variables were assigned.
 
 <BR>
 
-### A Super Model
+### Super Model
 My main interest in this mini-project was simple: to see which variables had the strongest relationship to predicting whether or not I liked someone enough to consider dating them.  For this I used a Gradient Boosted Classifier from __XG Boost__.  I intentionally overfit the model (500 trees, tree depth of 4, and learning rate of 50%) because I am not interested in building a predictive algorithm using the limited variables I have.  The primary issue in doing so is that some of the variables such as attraction, humor, intellectual connection, chemistry, politics, and second date can only be answered fairly after I've met someone.  Thus this is a _descriptive_ project and not an _inferential_ or _predictive_ one.
 
 
@@ -74,11 +74,42 @@ Rank | Feature                 | Importance
 
 <sub> __Table 2:__ The top 10 features from my initial run, without _Chemistry_, and without any data prep apart from dummied variables.</sub>
 
-My initial reaction to this result was one of surprise.  Age?  Really?  That's the overwhelmingly most predictive feature for whether or not I liked someone?  That sure didn't _feel_ right, so I did a quick visual inspection to see if this made sense.
+My initial reaction to this result was one of surprise.  Age?  Really?  That's the overwhelmingly most predictive feature for whether or not I liked someone?  That sure didn't _feel_ right, so I did a quick visual inspection to see if this made sense by looking at the basic Pearson R<sup>2</sup> correlation between _Age_ and a binary version of the _Like_This_Person?_ target, as well as the same for _Attraction_.
 
-<img src="images/age_intellect_like_pair_plot.png" alt="Comparison of Age and Intellectual Connection correlation to 'Liking' someone."
+<img src="images/age_intellect_like_pair_plot.png" alt="Comparison of Age and Intellectual Connection correlation to 'Liking' someone.">
 
 <sub> __Figure 1:__ Comparison of Age and Intellectual Connection correlation to 'Liking' someone.</sub>
 
+<BR>
+
+Visually the result doesn't support the feature importance results above.  The slope for _Age_ is much flatter than that for _Attraction_.  This is not a definitive result (for one, because we shouldn't use a linear regression in this situation); it's just a basic litmus test to see if things are in the right ballpark.  This plot suggests that we are not.  
+
+Curious, I wanted to find the basic correlation between _Age_, _Attraction, and _Like_This_Person?_ to further support that the initial feature importances seemed askew.  Since our dependent variable of _Like_This_Person?_ is binary, a standard OLS linear regression is [not advised](http://thestatsgeek.com/2015/01/17/why-shouldnt-i-use-linear-regression-if-my-outcome-is-binary/).  So, using __Sci-Kit Learn__'s `LogisticRegression` module (`C=1.0, penalty='l1'`), the following coefficients were calculated for the two variables in question.
+
+Variable   | Logit Coefficient
+-----------|:----------------:|
+Age        | -.011
+Attraction |  .353
+
+<sub> __Table 3:__ Logistic Regression coefficients for Age and Attraction, showing a greatly diminished importance for Age.</sub>
+
+<BR>
+
+This isn't meant to be a comprehensive logistic regression report using an optimally-tuned Logit model, but rather a guideline as to the relative importance of each feature.  So both graphically (__Figure 1__) and mathematically we are seeing that _Age_ does not appear to be particularly important.  But our (more advanced) gradient boosted model said that _Age_ was not just important, but the most important feature by a mile.  What gives?
+
+Well, this is where understanding what's going on "under the hood" for the models we are using shows its importance.  When using a decision tree-based model, of which gradient boosting is an ensemble version, there is a specific susceptibility for inflated feature importance reporting if a feature can take on a large range of unique values relative to other features in the dataset. <sup>[__1__](#fn1)</sup>
+
 
 ### What Factors Best Predict Whether I Will Want to Continue Dating Someone?
+
+
+
+
+
+
+
+
+
+
+### References
+<a name="fn1">1.</a> https://en.wikipedia.org/wiki/Information_gain_in_decision_trees#Drawbacks
