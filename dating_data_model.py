@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 import xgboost as xgb
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 def load_data():
     """
@@ -10,7 +12,16 @@ def load_data():
     """
     df = pd.read_csv('pandas_dating_demo_df_anon.csv')
     df.drop('ID', inplace=True, axis=1)
-    # correct dtypes
+
+    ans = int(input("Would you like to include the 'Chemistry' variable or not? \
+    \n 1. Yes \
+    \n 2. No \
+    \n Please enter the number of your choice: "))
+
+    if ans == 2:
+        df.drop('Chemistry', inplace=True, axis=1)
+
+    # correct dtypes if needed -- sometimes the CSV has a weird conversion issue.
     for col in df.columns:
         if df[col].dtype.type not in [np.int64, np.float64]:
             if df.loc[2, col].split('.')[0].isnumeric():
@@ -43,8 +54,10 @@ def bin_age(df):
 
 
 def feat_importances(df, mod):
+
+    print("")
     for idx, itm in enumerate(sorted(list(zip(mod.feature_importances_, df.columns.tolist())), reverse=True), 1):
-        print("{r}. {feat}: {imp}".format(r=idx, feat=itm[1], imp=itm[0]))
+        print("{r}. {feat}: {imp:.1f}%".format(r=idx, feat=itm[1], imp=itm[0] * 100))
 
 
 if __name__ == '__main__':
@@ -57,16 +70,16 @@ if __name__ == '__main__':
     # Intentionally overfit the model b/c I only want to know feature_importances for existing data, not attempting to actually makes predictions (yet!)
     mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4)
     mod.fit(X, y)
-
+    feat_importances(df, mod)
     # feats = list(zip(mod.feature_importances_, df.columns.tolist()))
     # sorted(feats, reverse=True)
     # df['Age'] = age
 
-# yy = np.array([1 if x == 'Yes' else 0 for x in y])
-# sns.jointplot(x=df['Intellectual_Connection'].values, y=yy, kind='reg', ratio=10)
-# plt.xlabel()
-# plt.ylabel()
-# plt.show()
+yy = np.array([1 if x == 'Yes' else 0 for x in y])
+sns.jointplot(x=df['Age'].values, y=yy, kind='reg', ratio=10)
+plt.xlabel()
+plt.ylabel()
+plt.show()
 
 
 
