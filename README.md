@@ -4,6 +4,7 @@ As part of my helping teach the "_Data Science: Intro to Python_" course, I made
 
 ### The Database Breakdown
 My dating database had the following variables:
+
 Variable                |  Type       | Values
 ------------------------|-------------|------
 Age                     | Numeric     | 21 - 45
