@@ -20,15 +20,15 @@ As part of my helping teach the "_Data Science: Intro to Python_" course, I made
     + [Height](#height)
     + [Intellect and Humor](#intellect-and-humor)
     + [Bad Dates](#bad-dates)
-    + [Politics](#politics)
-        + [Voters by County](#voters-by-county)
-6. [Chemistry](#the-physical-chemist)
+6. [Politics](#politics)
+    + [Voters by County](#voters-by-county)
+7. [Chemistry](#the-physical-chemist)
     + [Feature Importance](#feature-importance-with-chemistry)
-7. [Attitude is Everything](#attitude-is-everything)
+8. [Attitude is Everything](#attitude-is-everything)
     + [Attitude Counts](#attitude-counts)
     + [Attitude and Income](#attitude-and-income)
-8. [Check Please](#check-please)
-9. [References](#references)
+9. [Check Please](#check-please)
+10. [References](#references)
 
 
 
@@ -211,7 +211,9 @@ Following _Height_ and _Attraction_ are _Intellectual Connection_ and _Humor_.  
 ###### [Bad Dates](https://www.youtube.com/watch?v=0qIMTA4_YdU)
 We should quickly touch on _Second Date (No)_.  Despite the possibilities for undesired absences of second dates mentioned in the intro, it appears that most of the time a second date doesn't occur has probably been either my choice or a mutually agreed upon lack of interest.  I say this because of the feature's appearance here.  Again, these feature importances don't tell us directionality, but with the category being split into a _(No)_ sub-set, we can conclude that the absence of this feature (meaning that there actually was a second date, since the "No" column would be empty) correlates to my "liking" someone.  This makes sense.
 
-##### Politics
+<BR>
+
+### Politics
 _Politics Left_ is a bit of a surprise, personally.  I'm a registered independent and find radical political views on either side to be a moderately off-putting trait in a potential partner.  I find strict ideology in general is a suffocator of innovation and critical thinking.  I can't help but wonder if there's not something more to this, else I might just chalk it up to being [fake news](images/fakenews.jpg).
 
 <BR>
