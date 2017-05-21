@@ -91,7 +91,7 @@ There were three stages to data prep in this project.
 <BR>
 
 ### The First Time
-Fo the first run of the model I had not yet created the _Chemistry_ variable, or as they say in Russia, there was no "_chim-ih-stree_."  Initially I did not have the _Chemistry_ variable included, and it turns out this mattered.  We'll come back to this in our second run below.  Here are the top 10 features for the (overfit) GBC model:
+Fo the first run of the model I had not yet created the _Chemistry_ variable, or as they say in Russia, there was no "_chim-ih-stree_."  It turns out this mattered.  We'll come back to this in our second run below.  Here are the top 10 features for the (overfit) GBC model:
 
 ###### First Run Feature Importance
 Rank | Feature                 | Importance
