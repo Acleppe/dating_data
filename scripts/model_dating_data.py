@@ -78,6 +78,20 @@ def plot_pairs(df, col1, col2):
     plt.close()
 
 
+def plot_heights(df):
+    plt.axhline(df['Height(in.)'].mean(), ls=':', lw=1, color='k', label='Avg. Height')
+    plt.plot(df['Height(in.)'], color=sns.color_palette('Reds_d')[1], lw=2.5, marker='o', ms=5.5, mfc=sns.color_palette('Reds_d')[2], mec=sns.color_palette('Reds_d')[1], mew=1.2)
+    plt.yticks([x for x in range(60, 75)],
+        [str(divmod(x, 12)[0]) + ', ' + str(divmod(x, 12)[1]) for x in range(60, 75)])
+    plt.title("Height of Everyone in the Database")
+    plt.xlabel("Person")
+    plt.ylabel("Height (ft, in)")
+    plt.legend(['Avg. Height'], loc='upper center')
+    plt.tight_layout()
+    plt.show()
+    plt.close()
+
+
 def plot_voters(dfv):
     """
     Take Voters DF and plot it in a basic bar chart, segmented by party.
@@ -175,4 +189,5 @@ if __name__ == '__main__':
     df['Age'] = age
     # get_logit_coef(df, 'Age')
     # plot_pairs(df)
+    # plot_heights(df)
     # plot_voters(dfv)

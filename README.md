@@ -203,7 +203,13 @@ Rank | Feature                 | Importance
 ###### Height
 It looks like the biggest beneficiary of removing _Hair_ was _Height_, as its importance increased by around 14% relative to the rest of the database, keeping it in the pole position.  Having _Height_ as the most important feature presents us with an excellent opportunity to point out that tree-based feature importances don't tell us whether a higher or lower value of a given variable helps predict the desired outcome, only that _one of the two_ does.  In the case of _Attraction_, the obvious conclusion is that people I was more attracted to are going to be more likely to be "liked" by me and considered a possible fit for long-term dating.  
 
-But we have no such obvious conclusion with _Height_.  It could mean that I routinely "liked" taller women, or that I routinely "liked" shorter women.  We don't know from this table alone.  One way to find out would be to do some exploratory data analysis (EDA) on the dataset and see if we could note the trend ourselves.  Yet another option would be to ask me, since I probably have an inkling of which type of person, taller or shorter, I seem to respond favorably to.  I would think this hunch should be especially evident to the subject (I) since _Height_ appears to be such a salient factor.
+But we have no such obvious conclusion with _Height_.  It could mean that I routinely "liked" taller women, or that I routinely "liked" shorter women.  We don't know from this table alone.  One way to find out would be to do some exploratory data analysis (EDA) on the dataset and see if we could note the trend ourselves.  Yet another option would be to ask me, since I probably have an inkling of which type of person, taller or shorter, I seem to respond favorably to.  I would think this hunch should be especially evident to the subject (I) since _Height_ appears to be such a salient factor.  Given this, let's see if we can construe a viable answer from a quick and dirty plot of the data.
+
+<img src="images/heights.png" alt="heights">
+
+<sub> __Figure 2:__ Heights of everyone in the database. </sub>
+
+<BR>
 
 ###### Intellect and Humor
 Following _Height_ and _Attraction_ are _Intellectual Connection_ and _Humor_.  It makes sense that these features round out the top four.  When we think of choosing a partner, obviously we would like to be attracted to them (studies have shown that men tend to value attraction slightly more than women, to no one's surprise).  But right along with attraction we want someone we can "connect" with (see: hold multiple conversations that are actually stimulating) and someone who can make us laugh or that we can laugh with.  I surely would have said as much before making this project, so it's pretty neat to see the data bear it out!
@@ -236,7 +242,7 @@ Out of curiosity, I looked up voter registration statistics for the counties I'v
 ###### Voters by County
 <img src="images/voters_by_county.png" alt="Registered voters by county in CO.">
 
-<sub> __Figure 2:__ Voters by neighboring counties in CO, May 2017.</sub>
+<sub> __Figure 3:__ Voters by neighboring counties in CO, May 2017.</sub>
 
 <BR>
 
@@ -244,7 +250,7 @@ Well, the interesting point to me as an independent voter myself is how numerous
 
 Only two counties, Weld and Larimer, have more registered republican than democrat voters.  Both counties are at the northern border of the state and are home to much of the state's oil and gas industry.  In the other six counties republican voters are in last place (Adams, Arapahoe, Boulder, Denver) or tied for last (Broomfield, Jefferson).  The selection pool is just smaller for conservative-minded partners in this area of the state.  It's that simple.
 
-However, __Figure 2__ also suggests that I have had a dearth of independent voters in my dating experiences, which when we see how highly they rate in _Intellectual Connection_ and _Humor_ -- the third and fourth most important features in the "hairless" run of the model! -- is something of a real shame.  In fact, independent voters are the leading registration alignment in five of the eight counties!  Absolutely shocking results to me.  If I was to glean any advice going forward from this mini-study, it would perhaps be to make an effort to try to meet more independent voters.
+However, __Figure 3__ also suggests that I have had a dearth of independent voters in my dating experiences, which when we see how highly they rate in _Intellectual Connection_ and _Humor_ -- the third and fourth most important features in the "hairless" run of the model! -- is something of a real shame.  In fact, independent voters are the leading registration alignment in five of the eight counties!  Absolutely shocking results to me.  If I was to glean any advice going forward from this mini-study, it would perhaps be to make an effort to try to meet more independent voters.
 
 <BR>
 
@@ -310,7 +316,7 @@ We see a fairly general trend -- more people in low than high income brackets --
 
 <img src="images/income_by_tude.png" alt="Income by attitude">
 
-<sub> __Figure 3:__ People's income as grouped by what I found their personal attitudes to be.</sub>
+<sub> __Figure 4:__ People's income as grouped by what I found their personal attitudes to be.</sub>
 
 <BR>
 
@@ -320,7 +326,7 @@ Do recall again that I made this database without any notion of these results.  
 
 First, if there is a link between personal attitude and financial success, these results suggest my labels of people's attitudes are reasonably accurate.
 
-Second, these groupings may imply that either I am slightly mislabeling people's incomes or that I have had a larger than average share of low income people in my dating life.  I feel very strongly that overall the income labels I assigned are representative.  That in itself might be more a reflection of the partners I was encountering than anything else, I suppose.  Still, if I got the income category 90% right, that would mean that up to five people were misclassified, which could change the layout of __Figure 3__.
+Second, these groupings may imply that either I am slightly mislabeling people's incomes or that I have had a larger than average share of low income people in my dating life.  I feel very strongly that overall the income labels I assigned are representative.  That in itself might be more a reflection of the partners I was encountering than anything else, I suppose.  Still, if I got the income category 90% right, that would mean that up to five people were misclassified, which could change the layout of __Figure 4__.
 
 Third, these results would seem to suggest (only suggest) that there could indeed be a relationship between personal attitude and financial success.  The most negative group, _Complainer_, has eight of its nine entries (88.9%) in the _low_ bracket.  The lone exception is in the _medium_ group, meaning the _Complainer_ group is the only one that doesn't have anyone in the _high_ income group.  See for yourself:
 
