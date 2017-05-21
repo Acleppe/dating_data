@@ -216,8 +216,6 @@ We should quickly touch on _Second Date (No)_.  Despite the possibilities for un
 ### Politics
 _Politics Left_ is a bit of a surprise, personally.  I'm a registered independent and find radical political views on either side to be a moderately off-putting trait in a potential partner.  I find strict ideology in general is a suffocator of innovation and critical thinking.  I can't help but wonder if there's not something more to this, else I might just chalk it up to being [fake news](images/fakenews.jpg).
 
-<BR>
-
 ###### Walking Down the _Other_ Aisle
 Leaning     | Count | Attraction | Intel. Connect. | Humor | Chemistry
 ------------|-------|------------|-----------------|-------|-----------
