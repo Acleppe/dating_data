@@ -280,7 +280,7 @@ There's just no overriding biology, is there?  _Chemistry_ absolutely obliterate
 
 If I have good chemistry and feel comfortable with someone, then I will probably "like" them enough to want to continue seeing them.  If we don't have a comfortable connection in that aspect, then it seems clear that the concept of being with that person for the long haul is a no-go.  
 
-In real chemistry, we say "like dissolves like," referring to solvents.  And I suppose that's largely what's at work here.  If there is a productive reaction together, then you both feel alike and this feeling (a potentially admittedly rare one) can dissolve away other impediments, such as political differences or slightly diverging senses of humor, allowing a successful relationship to precipitate out.  The differences in other areas likely act as a product loss -- you aren't going to achieve maximum possible solvency if you intermittently come to loggerheads over politics and humor -- but you are at least miscible enough to overcome the activation energy required to start the relationship in the first place.
+In real chemistry we say "like dissolves like," referring to solvents.  And I suppose that's largely what's at work here.  If there is a productive reaction together, then you both feel alike and this feeling (a potentially admittedly rare one) can dissolve away other impediments, such as political differences or slightly diverging senses of humor, allowing a successful relationship to precipitate out.  The differences in other areas likely act as a product loss -- you aren't going to achieve maximum possible solvency if you intermittently come to loggerheads over politics and humor -- but you are at least miscible enough to overcome the activation energy required to start the relationship in the first place.
 
 Okay, that's the last of the chemistry-laden metaphors.  I promise.  All things equal, I think this makes sense, somewhat disappointing though it may initially be.  No matter how attracted you are to someone, no matter how much you laugh, or how lockstep you are with each other on politics or world affairs, if you are romantically involved with each other and it doesn't feel right, there's just no realistic chance you would want to continue seeing that person in a romantic role.  Basic biology wins again.  
 
@@ -317,11 +317,11 @@ We see a fairly general trend -- more people in low than high income brackets --
 
 <img src="images/income_by_tude.png" alt="Income by attitude">
 
-<sub> __Figure 4:__ People's income as grouped by what I found their personal attitudes to be.</sub>
+<sub> __Figure 4:__ People's income as grouped by what I found their personal attitudes to be.  Look at the blue bars.</sub>
 
 <BR>
 
-This is my favorite result from this entire project!  I've always believed that a positive attitude in life is going to net better outcomes.  You handle stress better.  You handle short-term obstacles better.  You handle your failures better.  You handle _others'_ failures better.  You see challenges as ways to learn and grow instead of likely ways to falter.  This chart tickles me pink.
+This is my favorite result from this entire project!  Look at the _Positive_ (blue) bars!  I've always believed that a positive attitude in life is going to net better outcomes.  You handle stress better.  You handle short-term obstacles better.  You handle your failures better.  You handle _others'_ failures better.  You see challenges as ways to learn and grow instead of likely ways to falter.  This chart tickles me pink.
 
 Do recall again that I made this database without any notion of these results.  This question wasn't even one I had conceived until I began writing my lecture on using this database as a means to demonstrate basic concepts in Pandas.  And we should also note that something like "personal attitude" is inherently a malleable concept.  What I consider "neutral" someone else may peg as "positive."  By nature I am inherently strongly positive and I naturally seek this quality in others, especially a partner.  So, to see this breakdown implies a few things, none of which are conclusive of course, but all of which are interesting.
 
