@@ -85,11 +85,13 @@ if __name__ == '__main__':
     df = load_data()
     df = make_dummies(df)
     df, age = bin_age(df)
+    # for col in [c for c in df.columns if 'Hair' in c]:
+    #     df.drop(col, inplace=True, axis=1)
     y = df.pop('Like_This_Person?').values
     X = df.values
 
     # Intentionally overfit the model b/c I only want to know feature_importances for existing data, not attempting to actually makes predictions (yet!)
-    mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4, seed=462)
+    mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4)
     mod.fit(X, y)
     feat_importances(df, mod)
     # Add Binary version of target col back for plotting and Logit

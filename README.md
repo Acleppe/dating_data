@@ -72,6 +72,7 @@ There were three stages to data prep in this project.
 2. Address the _Age_ over-importance issue (see below).
 3. Add _Chemistry_ feature.
 
+<BR>
 
 ### The First Time
 Fo the first run of the model I had not yet created the _Chemistry_ variable, or as they say in Russia, there was no "_chim-ih-stree_."  Initially I did not have the _Chemistry_ variable included, and it turns out this mattered.  We'll come back to this in our second run below.  Here are the top 10 features for the (overfit) GBC model:
@@ -142,26 +143,55 @@ The other option is to bin the data based on _count_.  We simply count the numbe
 With our binned _Age_ variable, the feature importance results are notably different and, anecdotally speaking as the person who has met the people in this database, much more accurate.
 
 ###### Second Run Feature Importance
-
 Rank | Feature                 | Importance
 -----|-------------------------|-----------
 1    | Height (in)             | 19.3%
 2    | Attraction              | 15.1%
 3    | Hair Brunette           | 14.9%
 4    | Hair Blonde             | 12.7%
-5    | Second Date (No)        | 8.5%
-6    | Politics Left           | 8.1%
-7    | Intellectual Connection | 7.8%
-8    | Humor                   | 6.8%
-9    | Attitude Positive       | 4.0%
-10   | Income Low              | 2.8%
 
+<sub> __Table 4:__ Feature importance results after binning the _Age_ variable. </sub>
 
+<BR>
 
+...and what a difference proper data preparation has made!  By binning the wide-ranging _Age_ column we have let the other features in the model "breathe," giving them a chance to show their relative importance much more accurately.  The results themselves are somewhat interesting.
 
+First, note that the two types of hair are basically equal, showing that I don't seem to have a preference based on hair.  This is a fun finding for me, because I would have absolutely said that I prefer "dark" hair over blonde hair, but all things equal it seems that has very little to do with whether or not I actually consider someone as a good candidate to date long-term.  In a sense, this makes both features redundant -- every woman I have dated has had hair, so we aren't learning anything by keeping it in the model at this juncture.
 
+__Hirsute Hot Takes:__   
+Before we proceed without _Hair_ (hey, to each their own), it's worth noting the breakdown of the category.  In the dataset there are 26 Blondes, 24 Brunettes, and 1 Red.  Further backing the notion that I don't seem to have a real preference is that the mean _Attraction_ for both brunette and blonde is nearly identical at 5.88 and 5.87, respectively.  Again, this is news to me!  It's definitely an experience to see your own life be churned out in data and tell you something you might not have known about yourself.  
 
+Someone inexperienced with data science might also conclude that the fact there is only one redheaded person in the database means I am not attracted to women with red hair.  But, as always, we have to dig one level deeper to see if we can properly contextualize the results we get.  In this case, there are 51 total people in this database.  One has red hair.  That's just a, uh, _hair_ beneath 2% of the total database.  Well, a quick [Google search](https://www.google.com/search?q=what+percentage+of+people+have+red+hair&oq=what+percentage+of+people+have+red+hair&aqs=chrome..69i57.11005j0j7&sourceid=chrome&ie=UTF-8#q=what+percentage+of+people+have+red+hair?) gives us the context we are looking for.  
 
+Care to guess what percentage of the world population has red hair? ...if you said 2%, you win the Daily Double!  So, the occurrence of a lone red headed person in the database is in line with what we'd expect given the size of the database (though, it would vary by country.  The USA seems to be a fairly close representative of world red haired ratios).  Thus, we can't say anything conclusively whatsoever about my preference for or against red hair!
+
+Now, let's run the model with _Hair_ removed altogether.
+
+###### Feature Importance Without Hair
+Rank | Feature                 | Importance
+-----|-------------------------|-----------
+1    | Height (in)             | 33.3%
+2    | Attraction              | 18.0%
+3    | Intellectual Connection | 15.7%
+4    | Humor                   | 13.0%
+5    | Politics Left           | 8.9%
+6    | Second Date No          | 5.9%
+7    | Attitude Positive       | 3.2%
+8    | Income Low              | 2.1%
+
+<sub> __Table 5:__ Feature rankings with the _Hair_ column removed. </sub>
+
+<BR>
+
+It looks like the biggest beneficiary of removing _Hair_ was _Height_, as its importance increased by around 14% relative to the rest of the database, keeping it in the pole position.  Having _Height_ as the most important feature presents us with an excellent opportunity to point out that tree-based feature importances don't tell us whether a higher or lower value of a given variable helps predict the desired outcome, only that _one of the two_ does.  In the case of _Attraction_, the obvious conclusion is that people I was more attracted to are going to be more likely to be "liked" by me and considered a possible fit for long-term dating.  
+
+But we have no such obvious conclusion with _Height_.  It could mean that I routinely "liked" taller women, or that I routinely "liked" shorter women.  We don't know from this table alone.  One way to find out would be to do some exploratory data analysis (EDA) on the dataset and see if we could note the trend ourselves.  Yet another option would be to ask me, since I probably have an inkling of which type of person, taller or shorter, I seem to respond favorably to.  I would think this hunch should be especially evident to the subject (I) since _Height_ appears to be such a salient factor.
+
+Following _Height_ and _Attraction_ are _Intellectual Connection_ and _Humor_.  It makes sense that these features round out the top four.  When we think of choosing a partner, obviously we would like to be attracted to them (studies have shown that men tend to value attraction slightly more than women, to no one's surprise).  But right along with attraction we want someone we can "connect" with (see: hold multiple conversations that are actually stimulating) and someone who can make us laugh or that we can laugh with.  I surely would have said as much before making this project, so it's pretty neat to see the data bear it out!
+
+_Politics Left_ is a bit of a surprise, personally.  I'm a registered independent and find radical political views on either side to be a moderately off-putting trait in a potential partner.  I find strict ideology in general is a suffocator of innovation and critical thinking.  So, I can't help but wonder if there's not something more to this, else I might just chalk it up to being [fake news](images/fakenews.jpg)
+
+######
 
 
 
