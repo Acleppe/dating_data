@@ -182,7 +182,7 @@ if __name__ == '__main__':
     ## Intentionally overfit the model b/c I only want to know feature_importances for existing data, not attempting to actually makes predictions (yet!)
     mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4)
     mod.fit(X, y)
-    feat_importances(df, mod)
+    # feat_importances(df, mod)
 
     ## Add Binary version of target col back for plotting Logit and EDA
     df['Like_Binary'] = np.array([1 if x == 'Yes' else 0 for x in y])
@@ -191,3 +191,4 @@ if __name__ == '__main__':
     # plot_pairs(df)
     # plot_heights(df)
     # plot_voters(dfv)
+    # plot_attitude_counts(df)

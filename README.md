@@ -176,9 +176,9 @@ Rank | Feature                 | Importance
 ##### Dare to Nair  
 First, note that the two types of hair are basically equal, showing that I don't seem to have a preference based on hair.  This is a fun finding for me, because I would have absolutely said that I prefer "dark" hair over blonde hair, but all things equal it seems that has very little to do with whether or not I actually consider someone as a good candidate to date long-term.  In a sense, this makes both features redundant -- every woman I have dated has had hair, so we aren't learning anything by keeping it in the model at this juncture.
 
-Before we proceed without _Hair_ (hey, to each their own), it's worth noting the breakdown of the category.  In the dataset there are 26 Blondes, 24 Brunettes, and 1 Red.  Further backing the notion that I don't seem to have a real preference is that the mean _Attraction_ for both brunette and blonde is nearly identical at 5.88 and 5.87, respectively.  Again, this is news to me!  It's definitely an experience to see your own life be churned out in data and tell you something you might not have known about yourself.  
+Before we proceed without _Hair_ (hey, to each their own), it's worth noting the breakdown of the category.  In the dataset there are 27 Blondes, 24 Brunettes, and 1 Red.  Further backing the notion that I don't seem to have a real preference is that the mean _Attraction_ for both brunette and blonde is nearly identical at 5.88 and 5.90, respectively.  Again, this is news to me!  It's definitely an experience to see your own life be churned out in data and tell you something you might not have known about yourself.  
 
-Someone inexperienced with data science might also conclude that the fact there is only one redheaded person in the database means I am not attracted to women with red hair.  But, as always, we have to dig one level deeper to see if we can properly contextualize the results we get.  In this case, there are 51 total people in this database.  One has red hair.  That's just a, uh, _hair_ beneath 2% of the total database.  Well, a quick [Google search](https://www.google.com/search?q=what+percentage+of+people+have+red+hair&oq=what+percentage+of+people+have+red+hair&aqs=chrome..69i57.11005j0j7&sourceid=chrome&ie=UTF-8#q=what+percentage+of+people+have+red+hair?) gives us the context we are looking for.  
+Someone inexperienced with data science might also conclude that the fact there is only one redheaded person in the database means I am not attracted to women with red hair.  But, as always, we have to dig one level deeper to see if we can properly contextualize the results we get.  In this case, there are 52 total people in this database.  One has red hair.  That's just a, uh, _hair_ beneath 2% of the total database.  Well, a quick [Google search](https://www.google.com/search?q=what+percentage+of+people+have+red+hair&oq=what+percentage+of+people+have+red+hair&aqs=chrome..69i57.11005j0j7&sourceid=chrome&ie=UTF-8#q=what+percentage+of+people+have+red+hair?) gives us the context we are looking for.  
 
 Care to guess what percentage of the world population has red hair? ...if you said 2%, you win the Daily Double!  So, the occurrence of a lone red headed person in the database is in line with what we'd expect given the size of the database (though, it would vary by country.  The USA seems to be a fairly close representative of world red haired ratios).  Thus, we can't say anything conclusively whatsoever about my preference for or against red hair!
 
@@ -220,12 +220,12 @@ We should quickly touch on _Second Date (No)_.  Despite the possibilities for un
 <BR>
 
 ### Politics
-_Politics Left_ is a bit of a surprise, personally.  I'm a registered independent and find radical political views on either side to be a moderately off-putting trait in a potential partner.  I find strict ideology in general is a suffocator of innovation and critical thinking.  I can't help but wonder if there's not something more to this, else I might just chalk it up to being [fake news](images/fakenews.jpg).
+_Politics Left_ is a bit of a surprise, personally.  Again, just from its reported importance we are not told whether have more or less of this variable predicts if I will "like" someone.  I'm a registered independent and find radical political views on either side to be a moderately off-putting trait in a potential partner.  I find strict ideology in general is a suffocator of innovation and critical thinking.  So my personal political affiliations don't offer much of a roadmap, here.  (If I belonged to one party we could deduce whether this variable, _Politics Left_, would be considered a good or bad thing.  But I don't, so we can't).  I can't help but wonder if there's not something more to this, else I might just chalk it up to being [fake news](images/fakenews.jpg).
 
 ###### Walking Down the _Other_ Aisle
 Leaning     | Count | Attraction | Intel. Connect. | Humor | Chemistry
 ------------|-------|------------|-----------------|-------|-----------
-Left        | 33    | 5.7        | 5.0             | 4.8   | 5.0
+Left        | 34    | 5.7        | 5.0             | 4.8   | 5.0
 Right       | 14    | 6.4        | 4.3             | 5.0   | 6.0
 Independent | 4     | 4.5        | 9.1             | 9.0   | 5.0
 
@@ -233,9 +233,11 @@ Independent | 4     | 4.5        | 9.1             | 9.0   | 5.0
 
 <BR>
 
-Interesting.  There isn't anything that jumps off the page and screams "I clearly favor women who have liberal leanings."  Women leaning left politically edge out those leaning right in only one of the four variables, _Intellectual Connection_.  Conversely, conservatives come out on top in _Attraction_, _Humor_, and _Chemistry_.  But none of these "leads" are particularly resounding.  _Humor_ is almost deadlocked, and the other three categories are roughly mirror images of each other.  
+Interesting.  There isn't anything that jumps off the page and screams "I clearly favor women who have a certain political view."  Women leaning left politically edge out those leaning right in only one of the four variables, _Intellectual Connection_.  Conversely, conservatives come out on top in _Attraction_, _Humor_, and _Chemistry_.  But none of these "leads" are particularly resounding.  _Humor_ is almost deadlocked, and the other three categories are roughly mirror images of each other.  
 
-There are, however, two pronounced observations to be made.  First, the number of democrat women more than doubles that of republicans.  Again, someone eager for a quick conclusion might read that as suggesting I like to date liberal women twice as much as conservative women.  But, we can do better than such surface level takes.  The key element to any demographic sample like this is: where was it taken?  The entirety of this dataset was taken during my time living in or near Boulder, CO and the surrounding Denver metro area.  It is not surprising then that we'd expect to see a strong prevalence of democrats in this sample.
+There are, however, two pronounced observations to be made.  First, the number of democrat women more than doubles that of republicans.  Again, someone eager for a quick conclusion might read that as suggesting I like to date liberal women twice as much as conservative women.  But, we can do better than such surface level takes.  The key element to any demographic sample like this is: where was it taken?  The entirety of this dataset was taken during my time living in or near Boulder, CO and the surrounding Denver metro area.  It is not surprising then that we'd expect to see a strong prevalence of democrats in this sample.  
+
+The second point to note is that I apparently mesh very well intellectually with independents.  The sample size is too small to draw any sound result, but averaging over nine-out-of-ten in both intellectual and humor connection for four people is compelling.  This makes perfect sense -- I, myself, am an independent, so I would expect that I'd get along best with those who are also independent politically.  It's just so starkly portrayed here that even I chuckled.  Data for the win (FTW)!
 
 Out of curiosity, I looked up voter registration statistics for the counties I've lived in or that neighbored me.  
 
@@ -297,7 +299,7 @@ On a lark, I had a question come up that I wanted to poke around on.  "__Does pe
 Attitude   | Income | Count
 -----------|--------|------
 Positive   | Low    | 8
-Positive   | Medium | 5      
+Positive   | Medium | 6      
 Positive   | High   | 3    
 Neutral    | Low    | 9   
 Neutral    | Medium | 3      
@@ -308,7 +310,7 @@ Negative   | High   | 1
 Complainer | Low    | 8      
 Complainer | Medium | 1         
 
-<sub> __Table 8:__ The number of people in the database that have a given income at a given attitude. </sub>
+<sub> __Table 8:__ The number of people in the database that have a given income at a given attitude. The total categorical counts for _Attitude_ are Positive 17, Neutral 13, Negative 13, Complainer 9.</sub>
 
 <BR>
 
@@ -334,7 +336,7 @@ Third, these results would seem to suggest (only suggest) that there could indee
 ###### Attitude and Income
 Attitude   | Perc. Low | Perc. Medium | Perc. High
 -----------|-----------|--------------|-----------
-Positive   | 50.0%     | 31.2%        | 18.8%
+Positive   | 47.0%     | 35.3%        | 17.7%
 Neutral    | 64.2%     | 21.4%        | 7.2%
 Negative   | 64.2%     | 21.4%        | 7.2%
 Complainer | 88.9%     | 11.1%        | 0.0%
