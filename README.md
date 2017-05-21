@@ -257,7 +257,7 @@ However, __Figure 3__ also suggests that I have had a dearth of independent vote
 <BR>
 
 ### The Physical Chemist
-In a moment of inspiration after fixing the _Age_ binning issue and investigating political and hair color trends, I realized I had not included a potentially important variable: _Physical Chemistry_.  Anyone who has been in a serious relationship knows that a large component of appeal and happiness stems from physical chemistry.  A general quality of "do this person and I 'click' with each other physically?" is a core component of the glue that holds a relationship together.  As such, I added it to the database and ran the model again.
+In a moment of inspiration after fixing the _Age_ binning issue and investigating political and hair color trends, I realized I had not included a potentially important variable: _Physical Chemistry_.  Anyone who has been in a serious relationship knows that a large measure of appeal and happiness stems from physical chemistry.  A general quality of "do this person and I 'click' with each other physically?" is a core component of the glue that holds a relationship together.  As such, I added it to the database and ran the model again.
 
 <BR>
 
