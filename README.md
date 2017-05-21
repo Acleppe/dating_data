@@ -60,7 +60,7 @@ Did I Like This Person? | Binary      | Yes, No
 Let me quickly clarify how certain variables were assigned.  
 + __Attraction:__ Physical attraction only.
 + __Intellectual Connection:__ Basically the mental equivalent of attraction.
-+ __Humor:__ How well our senses of humor aligned; did I laugh a lot with this person?
++ __Humor:__ How well our senses of humor aligned; did I laugh a lot with this person?; did they get my amazingly bad dad jokes?
 + __Chemistry:__ The level of physical chemistry.
 + __Life Attitude:__ This is an appraisal of the person's general attitude in life.  
     + __Positive__: Generally optimistic, able to handle changes (even minor things like change of plans on a   date) well.  If the waiter makes a small mistake on their order, they just take off the unwanted food or, if necessary to address it, do so politely and don't mention it again.  Has a good view of the "big picture."  
