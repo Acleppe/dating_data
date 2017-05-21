@@ -42,7 +42,7 @@ Height (in)             | Numeric     | 60 - 74
 Attraction              | Numeric     | 0 - 10
 Intellectual Connection | Numeric     | 0 - 10
 Humor                   | Numeric     | 0 - 10
-Chemistry*              | Numeric     | 0 - 10
+Chemistry               | Numeric     | 0 - 10
 Hair                    | Categorical | Blonde, Brunette, Red
 Life Attitude           | Categorical | Positive, Neutral, Negative, Complainer
 Politics                | Categorical | Left, Right, Independent
@@ -52,7 +52,7 @@ Kids                    | Binary      | Yes, No
 Second Date?            | Binary      | Yes, No
 Did I Like This Person? | Binary      | Yes, No
 
-<sub> __Table 1:__ The variables I assigned to each person in the database. Note the asterisk next to _Chemistry_.  This denotes that it was added only after an initial run without it included.</sub>
+<sub> __Table 1:__ The variables I assigned to each person in the database.</sub>
 
 <BR>
 
