@@ -13,6 +13,22 @@ As part of my helping teach the "_Data Science: Intro to Python_" course, I made
     + [Logit Coefficients](#logit-coefficients)
 4. [Age is Just a Number](#age-is-just-a-number)
     + [Binning](#binning)
+5. [Second Run](#second-run)
+    + [Feature Importance](second-run-feature-importance)
+    + [Dare to Nair](#dare-to-nair)
+    + [Feature Importance Without Hair](#feature-importance-without-hair)
+    + [Height](#height)
+    + [Intellect and Humor](#intellect-and-humor)
+    + [Bad Dates](#bad-dates)
+    + [Politics](#politics)
+        + [Voters by County](#voters-by-county)
+6. [Chemistry](#the-physical-chemist)
+    + [Feature Importance](#feature-importance-with-chemistry)
+7. [Attitude is Everything](#attitude-is-everything)
+    + [Attitude Counts](#attitude-counts)
+    + [Attitude and Income](#attitude-and-income)
+8. [Check Please](#check-please)
+9. [References](#references)
 
 
 
@@ -159,7 +175,7 @@ Rank | Feature                 | Importance
 
 First, note that the two types of hair are basically equal, showing that I don't seem to have a preference based on hair.  This is a fun finding for me, because I would have absolutely said that I prefer "dark" hair over blonde hair, but all things equal it seems that has very little to do with whether or not I actually consider someone as a good candidate to date long-term.  In a sense, this makes both features redundant -- every woman I have dated has had hair, so we aren't learning anything by keeping it in the model at this juncture.
 
-__Hirsute Hot Takes:__   
+##### Dare to Nair  
 Before we proceed without _Hair_ (hey, to each their own), it's worth noting the breakdown of the category.  In the dataset there are 26 Blondes, 24 Brunettes, and 1 Red.  Further backing the notion that I don't seem to have a real preference is that the mean _Attraction_ for both brunette and blonde is nearly identical at 5.88 and 5.87, respectively.  Again, this is news to me!  It's definitely an experience to see your own life be churned out in data and tell you something you might not have known about yourself.  
 
 Someone inexperienced with data science might also conclude that the fact there is only one redheaded person in the database means I am not attracted to women with red hair.  But, as always, we have to dig one level deeper to see if we can properly contextualize the results we get.  In this case, there are 51 total people in this database.  One has red hair.  That's just a, uh, _hair_ beneath 2% of the total database.  Well, a quick [Google search](https://www.google.com/search?q=what+percentage+of+people+have+red+hair&oq=what+percentage+of+people+have+red+hair&aqs=chrome..69i57.11005j0j7&sourceid=chrome&ie=UTF-8#q=what+percentage+of+people+have+red+hair?) gives us the context we are looking for.  
@@ -184,14 +200,18 @@ Rank | Feature                 | Importance
 
 <BR>
 
+###### Height
 It looks like the biggest beneficiary of removing _Hair_ was _Height_, as its importance increased by around 14% relative to the rest of the database, keeping it in the pole position.  Having _Height_ as the most important feature presents us with an excellent opportunity to point out that tree-based feature importances don't tell us whether a higher or lower value of a given variable helps predict the desired outcome, only that _one of the two_ does.  In the case of _Attraction_, the obvious conclusion is that people I was more attracted to are going to be more likely to be "liked" by me and considered a possible fit for long-term dating.  
 
 But we have no such obvious conclusion with _Height_.  It could mean that I routinely "liked" taller women, or that I routinely "liked" shorter women.  We don't know from this table alone.  One way to find out would be to do some exploratory data analysis (EDA) on the dataset and see if we could note the trend ourselves.  Yet another option would be to ask me, since I probably have an inkling of which type of person, taller or shorter, I seem to respond favorably to.  I would think this hunch should be especially evident to the subject (I) since _Height_ appears to be such a salient factor.
 
+###### Intellect and Humor
 Following _Height_ and _Attraction_ are _Intellectual Connection_ and _Humor_.  It makes sense that these features round out the top four.  When we think of choosing a partner, obviously we would like to be attracted to them (studies have shown that men tend to value attraction slightly more than women, to no one's surprise).  But right along with attraction we want someone we can "connect" with (see: hold multiple conversations that are actually stimulating) and someone who can make us laugh or that we can laugh with.  I surely would have said as much before making this project, so it's pretty neat to see the data bear it out!
 
+###### [Bad Dates](https://www.youtube.com/watch?v=0qIMTA4_YdU)
 We should quickly touch on _Second Date (No)_.  Despite the possibilities for undesired absences of second dates mentioned in the intro, it appears that most of the time a second date doesn't occur has probably been either my choice or a mutually agreed upon lack of interest.  I say this because of the feature's appearance here.  Again, these feature importances don't tell us directionality, but with the category being split into a _(No)_ sub-set, we can conclude that the absence of this feature (meaning that there actually was a second date, since the "No" column would be empty) correlates to my "liking" someone.  This makes sense.
 
+##### Politics
 _Politics Left_ is a bit of a surprise, personally.  I'm a registered independent and find radical political views on either side to be a moderately off-putting trait in a potential partner.  I find strict ideology in general is a suffocator of innovation and critical thinking.  I can't help but wonder if there's not something more to this, else I might just chalk it up to being [fake news](images/fakenews.jpg).
 
 <BR>
