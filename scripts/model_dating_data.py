@@ -14,7 +14,7 @@ def load_data():
     OUTPUT: DataFrame
     """
     df = pd.read_csv('../data/pandas_dating_demo_df_anon.csv')
-    df.drop('ID', inplace=True, axis=1)
+    df.drop(['ID', 'Be_Friends?'], inplace=True, axis=1)
 
     ans = int(input("Would you like to include the 'Chemistry' variable or not? \
     \n 1. Yes \
@@ -24,7 +24,7 @@ def load_data():
     if ans == 2:
         df.drop('Chemistry', inplace=True, axis=1)
 
-    # correct dtypes if needed -- sometimes the CSV has a weird conversion issue.
+    # correct dtypes if needed -- sometimes the CSV has a weird dtype issue.
     for col in df.columns:
         if df[col].dtype.type not in [np.int64, np.float64]:
             if df.loc[2, col].split('.')[0].isnumeric():
@@ -81,6 +81,11 @@ def plot_pairs(df, col1, col2):
 
 
 def plot_heights(df):
+    """
+    Plot heights of people in the database, with people I "liked" enough to date being highlighted by a slightly larger and brighter blue circle.  Midpoint of the range of heights is marked by a dashed line.
+    INPUTE: df
+    OUTPUT: plot of heights
+    """
     hue = 'DarkBlue'
     like = mlines.Line2D([], [], color='SkyBlue', markersize=8, marker='o', ls='', lw=0, mec=hue, mew=1, label='Liked')
     no_like = mlines.Line2D([], [], color=hue, markersize=8, marker='o', ls='', lw=0, mec=hue, mew=1, label="Didn't Like")
@@ -104,6 +109,11 @@ def plot_heights(df):
 
 
 def plot_venn():
+    """
+    Plot basic Venn diagram of the intersection of people I "liked" romantically and people I felt would be a good friend.
+    INPUT: None
+    OUTPUT: Venn diagram
+    """
     like = mlines.Line2D([], [], color='r', markersize=8, marker='o', ls='', lw=0, alpha=.5, label='Liked')
     friend = mlines.Line2D([], [], color='b', markersize=8, marker='o', ls='', lw=0, alpha=.5, label="Friends")
     # Radii set to approximate relative size of each group
@@ -216,7 +226,7 @@ if __name__ == '__main__':
     ## Intentionally overfit the model b/c I only want to know feature_importances for existing data, not attempting to actually makes predictions (yet!)
     mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4)
     mod.fit(X, y)
-    # feat_importances(df, mod)
+    feat_importances(df, mod)
 
     ## Add Binary version of target col back for plotting Logit and EDA
     df['Like_Binary'] = np.array([1 if x == 'Yes' else 0 for x in y])
