@@ -56,6 +56,17 @@ def bin_age(df):
     return df, age
 
 
+def bin_height(df):
+    """
+    I modified some rankings in the database and now Height is overwhelmingly dominating the importances.  I think there's something wonky going on, so I'm binning it just for peace of mind to see if there's any clarity.  Sigh.
+    INPUT: DF
+    OUTPUT: DF with Height now binned into quintiles, each roughly having equal membership (qcut)
+    """
+    df = pd.concat([df, pd.get_dummies(pd.qcut(df['Height(in.)'], 5), prefix='Ht_Bins')], axis=1)
+    height = df.pop('Height(in.)')
+    return df, height
+
+
 def feat_importances(df, mod):
     """
     Print the relative feature importances of the model.
@@ -133,7 +144,7 @@ def plot_venn():
     plt.legend(handles=[like, friend], labels=[like.get_label(), friend.get_label()])
     plt.tight_layout()
     plt.show()
-
+    plt.close()
 
 
 def plot_voters(dfv):
@@ -160,9 +171,9 @@ def get_logit_coef(df, col, targ='Like_This_Person?'):
     OUTPUT: coefficient (float)
     """
     targ_binary = np.array([1 if itm == 'Yes' else 0 for itm in df[targ]])
-    clf = LogisticRegression(C=1.0, penalty='l1', tol=1e-6)
+    clf = LogisticRegression(C=1.0, penalty='l1', tol=1e-3)
     clf.fit(df[col].values.reshape(-1, 1), targ_binary.ravel())
-    return clf.coef_
+    return clf.coef_[0]
 
 
 def plot_attitude_counts(df):
@@ -218,19 +229,21 @@ if __name__ == '__main__':
     df = load_data()
     df = make_dummies(df)
     df, age = bin_age(df)
+    # df, height = bin_height(df)
     for col in [c for c in df.columns if 'Hair' in c]:
         df.drop(col, inplace=True, axis=1)
     y = df.pop('Like_This_Person?').values
     X = df.values
 
     ## Intentionally overfit the model b/c I only want to know feature_importances for existing data, not attempting to actually makes predictions (yet!)
+    print(df.columns)
     mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4)
     mod.fit(X, y)
     feat_importances(df, mod)
 
     ## Add Binary version of target col back for plotting Logit and EDA
-    df['Like_Binary'] = np.array([1 if x == 'Yes' else 0 for x in y])
-    df['Age'] = age
+    # df['Like_Binary'] = np.array([1 if x == 'Yes' else 0 for x in y])
+    # df['Age'] = age
     # get_logit_coef(df, 'Age')
     # plot_pairs(df)
     # plot_heights(df)
