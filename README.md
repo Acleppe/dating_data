@@ -314,11 +314,11 @@ Sixteen of 21 people represents 76.2% -- almost exactly three out of four.  That
 
 > [To friends]  
 > ME: Oh, yeah, Rapunzel -- I'm just absolutely _crazy_ about her.  
-> FRIEND: Really? That's great to hear.  Always nice to find a real friend that you also click with romantically.  
+> FRIEND 1: Really? That's great to hear.  Always nice to find a real friend that you also click with romantically.  
 > ME: Whoa, hold on now.  I didn't say anything about being friends.  
-> FRIEND: Uh, whaddaya mean?  You just said you were crazy about this girl?  You guys have been together for a while now.  That's kind of the whole point of a relationship, getting to be intimate with someone that is also your best friend.  
+> FRIEND 2: Uh, whaddaya mean?  You just said you were crazy about this girl?  You guys have been together for a while now.  That's kind of the whole point of a relationship, getting to be intimate with someone that is also your best friend.  
 > ME: Yeah, but I wouldn't actually consider her a "friend."  I would date her, but I don't think we are a good match as friends.  We aren't at that level, if you know what I mean?  
-> FRIEND: No, I have absolutely no idea what you mean.  In fact, just stop talking.  Thanks.  
+> FRIENDS: [in unison] No, we have absolutely no idea what you mean.  In fact, just stop talking.  Thanks.  
 
 <BR>
 
