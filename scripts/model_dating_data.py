@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import MinMaxScaler, Normalizer, StandardScaler
 import xgboost as xgb
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -13,7 +14,7 @@ def load_data():
     INPUT: None
     OUTPUT: DataFrame
     """
-    df = pd.read_csv('../data/pandas_dating_demo_df_anon.csv')
+    df = pd.read_csv('../data/jp_dating_df_anon.csv')
     df.drop(['ID', 'Be_Friends?'], inplace=True, axis=1)
 
     ans = int(input("Would you like to include the 'Chemistry' variable or not? \
@@ -229,14 +230,12 @@ if __name__ == '__main__':
     df = load_data()
     df = make_dummies(df)
     df, age = bin_age(df)
-    # df, height = bin_height(df)
     for col in [c for c in df.columns if 'Hair' in c]:
         df.drop(col, inplace=True, axis=1)
     y = df.pop('Like_This_Person?').values
     X = df.values
 
-    ## Intentionally overfit the model b/c I only want to know feature_importances for existing data, not attempting to actually makes predictions (yet!)
-    print(df.columns)
+    ## Intentionally overfit the model b/c I only want to know feature_importances for existing data, not attempting to actually makes predictions.
     mod = xgb.XGBClassifier(n_estimators=500, learning_rate=.5, max_depth=4)
     mod.fit(X, y)
     feat_importances(df, mod)
