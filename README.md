@@ -313,12 +313,12 @@ We would think that liking someone enough to date means that you could also be f
 Sixteen of 21 people represents 76.2% -- almost exactly three out of four.  That means that one out of four people I felt I could date were people I didn't really want to be "just friends" with.  I find this result somewhat surprising!  I wonder if the ~25% of people I would date but wouldn't care to be friends with would have made horrible relationships?  How could you reconcile that determination with your other friends or family?  
 
 > [To friends]  
-> ME: Oh, yeah, Rapunzel -- I'm just absolutely _crazy_ about her.  
-> FRIEND 1: Really? That's great to hear.  Always nice to find a real friend that you also click with romantically.  
-> ME: Whoa, hold on now.  I didn't say anything about being friends.  
-> FRIEND 2: Uh, whaddaya mean?  You just said you were crazy about this girl?  You guys have been together for a while now.  That's kind of the whole point of a relationship, getting to be intimate with someone that is also your best friend.  
-> ME: Yeah, but I wouldn't actually consider her a "friend."  I would date her, but I don't think we are a good match as friends.  We aren't at that level, if you know what I mean?  
-> FRIENDS: [in unison] No, we have absolutely no idea what you mean.  In fact, just stop talking.  Thanks.  
+> __ME:__ Oh, yeah, Rapunzel -- I'm just absolutely _crazy_ about her.  
+> __FRIEND 1:__ Really? That's great to hear.  Always nice to find a real friend that you also click with romantically.  
+> __ME:__ Whoa, hold on now.  I didn't say anything about being friends.  
+> __FRIEND 2:__ Uh, whaddaya mean?  You just said you were crazy about this girl?  You guys have been together for a while now.  That's kind of the whole point of a relationship, getting to be intimate with someone that is also your best friend.  
+> __ME:__ Yeah, but I wouldn't actually consider her a "friend."  I would date her, but I don't think we are a good match as friends.  We aren't at that level, if you know what I mean?  
+> __FRIENDS:__ [in unison] No, we have absolutely no idea what you mean.  In fact, just stop talking.  Thanks.  
 
 <BR>
 
