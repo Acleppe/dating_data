@@ -338,6 +338,8 @@ The grouped averages for the four results of "liking" and "friending" (work with
 
 Interestingly, however, we see that while _Attraction_ and _Chemistry_ show no real difference between __not__ viewing someone as a possible friend, _Intellectual Connection_ and _Humor_ both are markedly lower for people I judged to not be a prospective friend compared to those I simply felt wouldn't be right to date.  In other words, if I didn't feel good chemistry or attraction to someone then I wouldn't be keen on dating them, but I could very well consider them still a friend.  However if we didn't have a fair mental or comedic connection, then I felt there was little to tie us together as even just friends.  
 
+The Logit coefficients for which variable most correlates to labeling someone a valid "friend" bear this out, too, with _Humor_ and _Intellectual Connection_ leading the way at .706 and .569, respectively.  _Attraction_ brings up the rear at .266, showing friendship in my view has little to do with physical appearance. (Yay me?)
+
 We don't need an NIH-funded Harvard study to tell us this, of course.  But it _is_ neat to see it borne out in my own dating history.  By and large, I have to be on the same page intellectually or comedically if I want to be reliable friends with someone.  If I am attracted to them and have a romantic chemistry, then I appear to be willing to "trade in" a bit of mental rapport and mirth for the even most sought-after intimate connection.  I suspect my experience with this echoes that of most men my age and younger, for better or worse.  
 
 <BR>
