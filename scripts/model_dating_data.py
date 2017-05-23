@@ -4,6 +4,8 @@ from sklearn.linear_model import LogisticRegression
 import xgboost as xgb
 import seaborn as sns
 import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
+import matplotlib.patches as mpatches
 
 def load_data():
     """
@@ -79,17 +81,49 @@ def plot_pairs(df, col1, col2):
 
 
 def plot_heights(df):
-    plt.axhline(df['Height(in.)'].mean(), ls=':', lw=1, color='k', label='Avg. Height')
-    plt.plot(df['Height(in.)'], color=sns.color_palette('Reds_d')[1], lw=2.5, marker='o', ms=5.5, mfc=sns.color_palette('Reds_d')[2], mec=sns.color_palette('Reds_d')[1], mew=1.2)
+    hue = 'DarkBlue'
+    like = mlines.Line2D([], [], color='SkyBlue', markersize=8, marker='o', ls='', lw=0, mec=hue, mew=1, label='Liked')
+    no_like = mlines.Line2D([], [], color=hue, markersize=8, marker='o', ls='', lw=0, mec=hue, mew=1, label="Didn't Like")
+    mask = df['Like_This_Person?'] == 'Yes'
+    colors = ['SkyBlue' if itm else hue for itm in mask]
+    sizes = [85 if itm else 45 for itm in mask]
+
+    fig = plt.figure(figsize=(10,8))
+    hline = plt.axhline(67, ls=':', lw=1, color='k', label='Midpoint')
+    plt.plot(df['Height(in.)'], color=hue, lw=2.5)
+    plt.scatter(np.arange(df.shape[0]), df['Height(in.)'], s=sizes, c=colors, marker='o', linewidths=1, edgecolor=hue, zorder=5)
     plt.yticks([x for x in range(60, 75)],
         [str(divmod(x, 12)[0]) + ', ' + str(divmod(x, 12)[1]) for x in range(60, 75)])
     plt.title("Height of Everyone in the Database")
     plt.xlabel("Person")
     plt.ylabel("Height (ft, in)")
-    plt.legend(['Avg. Height'], loc='upper center')
+    plt.legend(handles=[like, no_like, hline], labels=[like.get_label(), no_like.get_label(), hline.get_label()], loc='upper left')
     plt.tight_layout()
     plt.show()
     plt.close()
+
+
+def plot_venn():
+    like = mlines.Line2D([], [], color='r', markersize=8, marker='o', ls='', lw=0, alpha=.5, label='Liked')
+    friend = mlines.Line2D([], [], color='b', markersize=8, marker='o', ls='', lw=0, alpha=.5, label="Friends")
+    # Radii set to approximate relative size of each group
+    like_circle = patches.Circle((0.35, 0.5), 0.25, color='r', fill=True, alpha=.5)
+    friend_circle = patches.Circle((0.65, 0.5), 0.29, color='b', fill=True, alpha=.5)
+    fig = plt.figure(figsize=(8,8))
+    ax = fig.add_subplot(1,1,1, aspect='equal')
+    for p in [like_circle, friend_circle]:
+        ax.add_patch(p)
+
+    for center in zip([like_circle.center, friend_circle.center, (.5, .5)], ['21', '25', '16'], ['right', 'left', 'center'], ['k', 'k', 'w']):
+        ax.annotate(s=center[1], xy=center[0], size=25, ha=center[2], color=center[3])
+
+    plt.xticks([])
+    plt.yticks([])
+    plt.title("Venn Diagram of People Liked and Just Friends")
+    plt.legend(handles=[like, friend], labels=[like.get_label(), friend.get_label()])
+    plt.tight_layout()
+    plt.show()
+
 
 
 def plot_voters(dfv):
@@ -109,15 +143,15 @@ def plot_voters(dfv):
     plt.close()
 
 
-def get_logit_coef(df, col):
+def get_logit_coef(df, col, targ='Like_This_Person?'):
     """
     Get coefficient from logit model.
     INPUT: DF, variable of choice to regress on
     OUTPUT: coefficient (float)
     """
-
+    targ_binary = np.array([1 if itm == 'Yes' else 0 for itm in df[targ]])
     clf = LogisticRegression(C=1.0, penalty='l1', tol=1e-6)
-    clf.fit(df[col].values.reshape(-1, 1), df['Like_Binary'].values.ravel())
+    clf.fit(df[col].values.reshape(-1, 1), targ_binary.ravel())
     return clf.coef_
 
 
@@ -190,5 +224,6 @@ if __name__ == '__main__':
     # get_logit_coef(df, 'Age')
     # plot_pairs(df)
     # plot_heights(df)
+    # plot_venn()
     # plot_voters(dfv)
     # plot_attitude_counts(df)

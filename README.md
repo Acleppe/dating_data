@@ -22,13 +22,16 @@ As part of my helping teach the "_Data Science: Intro to Python_" course, I made
     + [Bad Dates](#bad-dates)
 6. [Politics](#politics)
     + [Voters by County](#voters-by-county)
-7. [Chemistry](#the-physical-chemist)
+7. [Chemistry](#physical-chemists)
     + [Feature Importance](#feature-importance-with-chemistry)
-8. [Attitude is Everything](#attitude-is-everything)
+    + [You Really Really Like Me](#you-really-really-like-me)
+8. [The Friend Zone](#the-friend-zone)
+    + [Likes and Friends](you-have-new-likes-and-friends)
+9. [Attitude is Everything](#attitude-is-everything)
     + [Attitude Counts](#attitude-counts)
     + [Attitude and Income](#attitude-and-income)
-9. [Check Please](#check-please)
-10. [References](#references)
+10. [Check Please](#check-please)
+11. [References](#references)
 
 
 
@@ -51,6 +54,7 @@ Divorced                | Binary      | Yes, No
 Kids                    | Binary      | Yes, No
 Second Date?            | Binary      | Yes, No
 Did I Like This Person? | Binary      | Yes, No
+Could We Be Friends?    | Binary      | Yes, No
 
 <sub> __Table 1:__ The variables I assigned to each person in the database.</sub>
 
@@ -73,6 +77,7 @@ Let me quickly clarify how certain variables were assigned.
     + __High__: above $80,000
 + __Second Date:__ Whether I saw this person a second time or not.  On the surface this seems like it would be an easy winner for most predictive variable -- if I "liked" someone then surely I'd see them again, right?  Well, life isn't always so cut-and-dried.  Sometimes circumstances change.  Sometimes you like someone that doesn't like you.  Sometimes you met only by chance to begin with.  Hence the inclusion of this feature.
 + __Did I Like This Person?:__ At the end of the day, whether I would consider full-on dating this person or not.  Ultimately, this is the target of the whole endeavor -- to find someone you'd like to date and, in my case, marry.
++ __Could We Be Friends?:__ If I didn't feel like the connection with this person was right for dating, could we still be moderately good friends, including socializing platonically?
 
 <BR>
 
@@ -207,9 +212,12 @@ But we have no such obvious conclusion with _Height_.  It could mean that I rout
 
 <img src="images/heights.png" alt="heights">
 
-<sub> __Figure 2:__ Heights of everyone in the database. </sub>
+<sub> __Figure 2:__ Heights of everyone in the database. 5'7" is the midpoint of the range.</sub>
 
 <BR>
+
+Judging from this plot of heights, it would appear that shorter heights correlate to my liking someone.  As the person whose dating history this database is referencing, I can confirm that indeed I seem to find myself naturally more drawn to shorter rather than taller partners.  
+
 
 ###### Intellect and Humor
 Following _Height_ and _Attraction_ are _Intellectual Connection_ and _Humor_.  It makes sense that these features round out the top four.  When we think of choosing a partner, obviously we would like to be attracted to them (studies have shown that men tend to value attraction slightly more than women, to no one's surprise).  But right along with attraction we want someone we can "connect" with (see: hold multiple conversations that are actually stimulating) and someone who can make us laugh or that we can laugh with.  I surely would have said as much before making this project, so it's pretty neat to see the data bear it out!
@@ -256,7 +264,7 @@ However, __Figure 3__ also suggests that I have had a dearth of independent vote
 
 <BR>
 
-### The Physical Chemist
+### We Are All Physical Chemists
 In a moment of inspiration after fixing the _Age_ binning issue and investigating political and hair color trends, I realized I had not included a potentially important variable: _Physical Chemistry_.  Anyone who has been in a serious relationship knows that a large measure of appeal and happiness stems from physical chemistry.  A general quality of "do this person and I 'click' with each other physically?" is a core component of the glue that holds a relationship together.  As such, I added it to the database and ran the model again.
 
 
@@ -284,9 +292,53 @@ In real chemistry we say "like dissolves like," referring to solvents.  And I su
 
 Okay, that's the last of the chemistry-laden metaphors.  I promise.  All things equal, I think this makes sense, somewhat disappointing though it may initially be.  No matter how attracted you are to someone, no matter how much you laugh, or how lockstep you are with each other on politics or world affairs, if you are romantically involved with each other and it doesn't feel right, there's just no realistic chance you would want to continue seeing that person in a romantic role.  Basic biology wins again.  
 
-I guess I wouldn't be here to write this and you wouldn't be here to read it if this wasn't the case.  So, in a way seeing _Chemistry_ at the top of the list is an affirmation that I'm wired like all my ancestors before me, and this is a vestige of epochs of life that saw our species' survival play out strictly as a game of numbers.  
+I guess I wouldn't be here to write this and you wouldn't be here to read it if _Chemistry_ wasn't a highly powerful driver.  So, in a way seeing _Chemistry_ at the top of the list is an affirmation that I'm wired like all my ancestors before me, and this is a vestige of epochs of life that saw our species' survival play out strictly as a game of numbers.  
 
 <img src="images/life_finds_a_way.gif" alt="Life finds a way">
+
+<BR>
+<BR>
+
+### The Friend Zone
+A fairly common result when dating is to meet someone who you don't have much romantic chemistry with but who you get on with well enough to be platonic friends.  In this recent dating history of mine there were 52 people in the database, 21 of which I "liked" and 25 I wanted to remain "friends" with.  That's a reasonable trend -- it's probably easier to find someone to be friends with than it is to date -- but it also includes a subtle difference that needs to be highlighted: one is not necessarily a subset of the other!  
+
+We would think that liking someone enough to date means that you could also be friends, and this is often true, but it isn't always so.  Due to myriad factors it is possible to think of someone as a possible candidate for dating while not thinking of them as a friend necessarily.  I observed this very phenomenon in my personal dating history.  Of the 21 people I "liked" enough to date, only 16 were labeled as someone I would want to be "friends" with.  I made a Venn diagram to help illustrate this result.
+
+<img src="images/like_friends_venn.png" alt="Venn diagram of liked and friends" width="600">
+
+<sub> __Figure 4:__ Venn diagram of the people I "liked" and the people I felt would make a good friend.</sub>
+
+<BR>
+
+Sixteen of 21 people represents 76.2% -- almost exactly three out of four.  That means that one out of four people I felt I could date were people I didn't really want to be "just friends" with.  I find this result somewhat surprising!  I wonder if the ~25% of people I would date but wouldn't care to be friends with would have made horrible relationships?  How could you reconcile that determination with your other friends or family?  
+
+> [To friends]  
+> ME: Oh, yeah, Rapunzel -- I'm just absolutely _crazy_ about her.  
+> FRIEND: Really? That's great to hear.  Always nice to find a real friend that you also click with romantically.  
+> ME: Whoa, hold on now.  I didn't say anything about being friends.  
+> FRIEND: Uh, whaddaya mean?  You just said you were crazy about this girl?  You guys have been together for a while now.  That's kind of the whole point of a relationship, getting to be intimate with someone that is also your best friend.  
+> ME: Yeah, but I wouldn't actually consider her a "friend."  I would date her, but I don't think we are a good match as friends.  We aren't at that level, if you know what I mean?  
+> FRIEND: No, I have absolutely no idea what you mean.  In fact, just stop talking.  Thanks.  
+
+<BR>
+
+###### You Have New Likes and Friends
+Result      | Age  | Height (in) | Attraction | Intel. Connect. | Humor | Chemistry
+------------|------|-------------|------------|-----------------|-------|----------
+_Like_      | 28.8 | 64.7        | 7.5        | 6.4             | 6.3   | 7.6
+Didn't Like | 31.0 | 66.0        | 4.7        | 4.3             | 4.4   | 3.7
+_Friends_   | 29.3 | 65.1        | 6.7        | 6.6             | 7.0   | 6.9
+Not Friends | 30.8 | 65.9        | 4.9        | 3.8             | 3.5   | 3.8
+
+<sub> __Table 8:__ Averages for the numerical features for people I liked romantically versus the ones I didn't as well as the ones I felt could be good friends versus the ones I didn't.</sub>
+
+<BR>
+
+The grouped averages for the four results of "liking" and "friending" (work with me) show the inflated importance of _Attraction_ and _Chemistry_ in determining whether or not I felt someone would be a potential dating match compared to just making a good friend.  Conversely, we also see an increase in the role of _Humor_ in deciding if someone would be a viable friend over being someone I'd like to date.  _Intellectual Connection_ remains about the same for both.  
+
+Interestingly, however, we see that while _Attraction_ and _Chemistry_ show no real difference between __not__ viewing someone as a possible friend, _Intellectual Connection_ and _Humor_ both are markedly lower for people I judged to not be a prospective friend compared to those I simply felt wouldn't be right to date.  In other words, if I didn't feel good chemistry or attraction to someone then I wouldn't be keen on dating them, but I could very well consider them still a friend.  However if we didn't have a fair mental or comedic connection, then I felt there was little to tie us together as even just friends.  
+
+We don't need an NIH-funded Harvard study to tell us this, of course.  But it _is_ neat to see it borne out in my own dating history.  By and large, I have to be on the same page intellectually or comedically if I want to be reliable friends with someone.  If I am attracted to them and have a romantic chemistry, then I appear to be willing to "trade in" a bit of mental rapport and mirth for the even most sought-after intimate connection.  I suspect my experience with this echoes that of most men my age and younger, for better or worse.  
 
 <BR>
 <BR>
@@ -309,7 +361,7 @@ Negative   | High   | 1
 Complainer | Low    | 8      
 Complainer | Medium | 1         
 
-<sub> __Table 8:__ The number of people in the database that have a given income at a given attitude. The total categorical counts for _Attitude_ are Positive 17, Neutral 13, Negative 13, Complainer 9.</sub>
+<sub> __Table 9:__ The number of people in the database that have a given income at a given attitude. The total categorical counts for _Attitude_ are Positive 17, Neutral 13, Negative 13, Complainer 9.</sub>
 
 <BR>
 
@@ -340,7 +392,7 @@ Neutral    | 64.2%     | 21.4%        | 7.2%
 Negative   | 64.2%     | 21.4%        | 7.2%
 Complainer | 88.9%     | 11.1%        | 0.0%
 
-<sub> __Table 9:__ Percent of each _Attitude_ group in a given income bracket. </sub>
+<sub> __Table 10:__ Percent of each _Attitude_ group in a given income bracket. </sub>
 <BR>
 
 This is really compelling!  Look at any income bracket and go down the column.  The _Positive_ attitude group has the best score in all the brackets, with the lowest percentage of _low_ incomes and the highest in _medium_ and _high_.  _Neutral_ and _Negative_ attitudes are identical, perhaps hinting that there isn't a ton of difference between the two, or that I could have labeled some members of these two groups incorrectly in either _Attitude_ or _Income_.  Or it could just a random chance, as the sample size for each is only n=14.  
