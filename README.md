@@ -1,4 +1,4 @@
-# My So-Called (Dating) Life
+# My So-Called Dating Life
 
 I'm divorced with (two _superrrrrrr_ awesome) children.  My ex-wife and I get along great.  But I would love to find an amazing partner and remarry, and possibly even have more children together.  I understand that every person has different ideas of what is important to their own sense of happiness and fulfillment.  For me, being in a great marriage is pretty high on the list of things that will have a deep and prolonged impact on my personal growth and satisfaction in life.  So, the best way to meet people is to ...meet people.  
 
